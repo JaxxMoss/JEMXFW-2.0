@@ -1,0 +1,45 @@
+
+@use '../utitilies/functions/config';
+
+$layout-config: (
+  'screensizes': (
+      's': 576px,
+      'm': 768px,
+      'l': 992px,
+      'xl': 1200px,
+      'xxl': 1400px
+  ),
+  'columns': 12,
+  'gutter': (
+    'full': 1rem,
+    'half': .5rem
+  ),
+  'spacer': (
+    'increment': .5rem,
+    'amount': 10
+  ),
+  'z-index': (
+    'background': -1,
+    'main': 0,
+    'content': 1,
+    'menu': 2,
+    'overlay': 3,
+    'lightbox': 4
+  )
+);
+
+@function screensizes( $size: false) {
+  @if $size { @return map-get($layout-config, 'screensizes', $size); }
+  @else { @return map-get($layout-config, 'screensizes'); }
+}
+
+@function columns() { @return map-get($layout-config, 'columns'); }
+
+@function gutter-full() { @return config.get($layout-config, 'gutter', 'full'); }
+@function gutter-half() { @return config.get($layout-config, 'gutter', 'half'); }
+
+@function spacer-increment() { @return config.get($layout-config, 'spacer', 'increment'); }
+@function spacer-amount() { @return config.get($layout-config, 'spacer', 'amount'); }
+@function spacer-value( $num: 0 ) { @return $num * spacer-increment(); }
+
+@function z-index( $name ) { @return config.get($layout-config, 'z-index', $name); }

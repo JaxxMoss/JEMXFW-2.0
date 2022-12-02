@@ -1,0 +1,13 @@
+@use '.././utitilies/functions/config';
+
+$state-config: (
+  'message': (
+    'info': #3098F2,
+    'success': #8CE205,
+    'warning': #F2E205,
+    'danger': #F2B705,
+    'error': #F22D05
+  )
+);
+
+@function message( $name: false ) { @return config.get($state-config, 'message', $name); }

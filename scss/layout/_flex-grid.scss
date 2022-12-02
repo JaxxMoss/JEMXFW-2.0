@@ -1,0 +1,72 @@
+@use 'sass:math';
+@use 'sass:map';
+
+@use '../config/layout-config' as layout;
+
+// row, col and all col- classes are selected.
+// flex.set mixin is used, found in util/mixin/_flex.scss
+.row,
+.col,
+[class^='col-'],
+[class*=' col-'] {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+// All direct descendants of the row class selected.
+// Flex-shrink and default width are set.
+.row > * {
+  flex-shrink: 0;
+}
+
+// Base column styling.
+[class^='col-'],
+[class*=' col-'],
+.col {
+  position: relative;
+  padding: layout.gutter-half();
+  flex-direction: column;
+
+  .inner { 
+    display: flex;
+    width: 100%;
+    padding: layout.spacer-value(1);
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+}
+
+// Declaring col-width-map variable. Used for column width values.
+$column-widths: ();
+
+// For-loop for generating base column classes. 
+// Default column number is 12, found in config/_size.scss
+// Width is added to col-width-map to be used. 
+@for $i from 1 through layout.columns() {
+  $column-width: calc( 100% / math.div(layout.columns(), $i) ); // Column width is calculated
+  $column-widths: map.set($column-widths, $i, $column-width); // Width is added to col-width-map
+  
+  .col-#{$i} { width: $column-width } // Base column width class is set.
+}
+
+// Foreach-loop for generating media-queries based on screensizes. 
+// Screensizes are found in config/_size.scss
+// Prefixes are: s, m, l, xl and xxl by default. 
+// Screenwidths are: 576, 768, 992, 1200, 1400
+@each $prefix, $screen-width in layout.screensizes() {
+
+  @media (min-width: $screen-width) { // Media-query based on screenwidth. 
+
+    // For-loop for generating column classes for screensizes. 
+    // Example: col-s-6 or col-xl-8
+    @for $i from 1 through layout.columns() {
+      
+      .col-#{$prefix}-#{$i} { 
+        flex: 0 0 auto; 
+        width: map.get($column-widths, $i); // Column width class for screensize is set.
+      } 
+
+    }
+  }
+}

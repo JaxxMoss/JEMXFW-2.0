@@ -1,0 +1,15 @@
+@use 'sass:map';
+
+@use '../utitilies/functions/config';
+
+$module-config: (
+  'mobile-menu': (
+    'breakpoint': 'm',
+    'x-position': 'right', // Options: left, right, false
+    'animation-side': 'full', // Options: top, side
+    'size': 'side', // Options: full, auto
+    'text-align': 'center', //Options: left, center, right
+  )
+);
+
+@function mobile-menu($name: false) { @return config.get($module-config, 'mobile-menu', $name); }

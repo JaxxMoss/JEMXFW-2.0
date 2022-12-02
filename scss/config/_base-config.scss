@@ -1,0 +1,42 @@
+// @use 'sass:map';
+@use '../utitilies/functions/config';
+
+$base-config: (
+  'font-sizes': (
+    's': 16px,
+    'm': 18px,
+    'l': 20px,
+    'xl': 22px,
+    'xxl': 24px
+  ),
+  'headings': (
+    'h1': 3rem,
+    'h2': 2rem,
+    'h3': 1.8rem,
+    'h4': 1.5rem,
+    'h5': 1.2rem,
+    'h6': 1rem
+  ),
+  'line-height': 1.5em,
+  'font-families': (
+    'normal': ('Source Sans 3', sans-serif),
+    'title': ('Oswald', sans-serif)
+  ),
+  'border': (
+    'thin': 1px,
+    'medium': 2px,
+    'thick': 4px
+  ),
+  'border-radius': (
+    'small': .2rem,
+    'normal': .3rem,
+    'large': .6rem
+  )
+);
+
+@function font-sizes( $size: false ) { @return config.get($base-config, 'font-sizes', $size); }
+@function headings( $size: false ) { @return config.get($base-config, 'headings', $size); }
+@function line-height() { @return config.get($base-config, 'line-height'); }
+@function font-family( $name: false ) { @return config.get($base-config, 'font-families', $name); }
+@function border( $thickness: false ) { @return config.get($base-config, 'border', $thickness); }
+@function border-radius( $size: false ) { @return config.get($base-config, 'border-radius', $size); }

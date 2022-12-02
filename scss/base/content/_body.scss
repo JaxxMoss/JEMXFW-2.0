@@ -1,0 +1,8 @@
+@use '../../config/base-config' as base;
+
+// # body text styling
+body { 
+  text-rendering: optimizeSpeed;
+  font-family: base.font-family('normal');
+  line-height: base.line-height();
+}

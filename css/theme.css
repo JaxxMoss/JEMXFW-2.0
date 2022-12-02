@@ -1,0 +1,114 @@
+body {
+  color: #222;
+  background-color: #ECF0F1;
+}
+
+.primary-color {
+  color: #3498DB;
+}
+
+.primary-background {
+  background-color: #3498DB;
+}
+
+.primary-border {
+  border-color: #3498DB;
+}
+
+.is-primary {
+  background-color: #3498DB;
+  color: #222;
+}
+
+.secondary-color {
+  color: #2980B9;
+}
+
+.secondary-background {
+  background-color: #2980B9;
+}
+
+.secondary-border {
+  border-color: #2980B9;
+}
+
+.is-secondary {
+  background-color: #2980B9;
+  color: #222;
+}
+
+.alert-color {
+  color: #E74C3C;
+}
+
+.alert-background {
+  background-color: #E74C3C;
+}
+
+.alert-border {
+  border-color: #E74C3C;
+}
+
+.is-alert {
+  background-color: #E74C3C;
+  color: #222;
+}
+
+.light-color {
+  color: #ECF0F1;
+}
+
+.light-background {
+  background-color: #ECF0F1;
+}
+
+.light-border {
+  border-color: #ECF0F1;
+}
+
+.is-light {
+  background-color: #ECF0F1;
+  color: #222;
+}
+
+.dark-color {
+  color: #2C3E50;
+}
+
+.dark-background {
+  background-color: #2C3E50;
+}
+
+.dark-border {
+  border-color: #2C3E50;
+}
+
+.is-dark {
+  background-color: #2C3E50;
+  color: #222;
+}
+
+code,
+samp,
+pre {
+  color: #ECF0F1;
+}
+
+code {
+  background-color: #222;
+}
+
+samp {
+  background-color: #2980B9;
+}
+
+pre {
+  background-color: #2C3E50;
+}
+
+article header::before,
+article footer::before {
+  border-color: #222;
+}
+
+/*# sourceMappingURL=theme.css.map */

@@ -1,0 +1,65 @@
+@use '../config/base-config' as base;
+
+.border-thin { border: base.border('thin') solid }
+.border-x-thin { border-left: base.border('thin') solid; border-left: base.border('thin') solid }
+.border-y-thin { border-top: base.border('thin') solid; border-bottom: base.border('thin') solid }
+.border-t-thin { border-top: base.border('thin') solid }
+.border-r-thin { border-right: base.border('thin') solid }
+.border-b-thin { border-bottom: base.border('thin') solid }
+.border-l-thin { border-left: base.border('thin') solid }
+
+.border-medium { border: base.border('medium') solid }
+.border-x-medium { border-left: base.border('medium') solid; border-right: base.border('medium') solid }
+.border-y-medium { border-top: base.border('medium') solid; border-bottom: base.border('medium') solid }
+.border-t-medium { border-top: base.border('medium') solid }
+.border-r-medium { border-right: base.border('medium') solid }
+.border-b-medium { border-bottom: base.border('medium') solid }
+.border-l-medium { border-left: base.border('medium') solid }
+
+.border-thick { border: base.border('thick') solid }
+.border-x-thick { border-left: base.border('thick') solid; border-right: base.border('thick') solid }
+.border-y-thick { border-top: base.border('thick') solid; border-bottom: base.border('thick') solid }
+.border-t-thick { border-top: base.border('thick') solid }
+.border-r-thick { border-right: base.border('thick') solid }
+.border-b-thick { border-bottom: base.border('thick') solid }
+.border-l-thick { border-left: base.border('thick') solid }
+
+.border-none { border: none }
+.border-x-none { border-left: none; border-right: none }
+.border-y-none { border-top: none; border-bottom: none }
+.border-t-none { border-top: none }
+.border-r-none { border-right: none }
+.border-b-none { border-bottom: none }
+.border-l-none { border-left: none }
+
+.border-r-small { border-radius: base.border-radius('small') }
+.border-r-t-small { border-radius: base.border-radius('small') base.border-radius('small') 0 0 }
+.border-r-r-small { border-radius: 0 base.border-radius('small') base.border-radius('small') 0 }
+.border-r-b-small { border-radius: 0 0 base.border-radius('small') base.border-radius('small') }
+.border-r-l-small { border-radius: base.border-radius('small') 0 0 base.border-radius('small') }
+.border-r-tl-small { border-radius: base.border-radius('small') 0 0 0 }
+.border-r-tr-small { border-radius: 0 base.border-radius('small') 0 0 }
+.border-r-br-small { border-radius: 0 0 base.border-radius('small') 0 }
+.border-r-br-small { border-radius: 0 0 0 base.border-radius('small') }
+
+.border-r-normal { border-radius: base.border-radius('normal') }
+.border-r-t-normal { border-radius: base.border-radius('normal') base.border-radius('normal') 0 0 }
+.border-r-r-normal { border-radius: 0 base.border-radius('normal') base.border-radius('normal') 0 }
+.border-r-b-normal { border-radius: 0 0 base.border-radius('normal') base.border-radius('normal') }
+.border-r-l-normal { border-radius: base.border-radius('normal')  0 0 base.border-radius('normal') }
+.border-r-tl-normal { border-radius: base.border-radius('normal') 0 0 0 }
+.border-r-tr-normal { border-radius: 0 base.border-radius('normal') 0 0 }
+.border-r-br-normal { border-radius: 0 0 base.border-radius('normal') 0 }
+.border-r-br-normal { border-radius: 0 0 0 base.border-radius('normal') }
+
+.border-r-large { border-radius: base.border-radius('large') }
+.border-r-t-large { border-radius: base.border-radius('large') base.border-radius('large') 0 0 }
+.border-r-r-large { border-radius: 0 base.border-radius('large') base.border-radius('large') 0 }
+.border-r-b-large { border-radius: 0 0 base.border-radius('large') base.border-radius('large') }
+.border-r-l-large { border-radius: base.border-radius('large') 0 0 base.border-radius('large') }
+.border-r-tl-large { border-radius: base.border-radius('large') 0 0 0 }
+.border-r-tr-large { border-radius: 0 base.border-radius('large') 0 0 }
+.border-r-br-large { border-radius: 0 0 base.border-radius('large') 0 }
+.border-r-br-large { border-radius: 0 0 0 base.border-radius('large') }
+
+.border-r-round { border-radius: 50% }

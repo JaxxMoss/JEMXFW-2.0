@@ -1,0 +1,8 @@
+@use '../config/theme-config' as theme;
+
+article {
+  header::before,
+  footer::before {
+    border-color: theme.border-color();
+  }
+}

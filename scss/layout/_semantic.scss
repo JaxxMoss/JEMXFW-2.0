@@ -1,0 +1,38 @@
+@use '../helper/border';
+
+@use '../config/layout-config' as layout;
+
+header,
+main,
+aside,
+article,
+section,
+footer {
+  display: block;
+}
+
+article {
+  @extend .border-thin;
+  padding: layout.spacer-value(1);
+  margin-bottom: layout.spacer-value(3);
+
+  header,
+  footer {
+    position: relative;
+
+    &::before {
+      @extend .border-b-thin;
+      content: '';
+      position: absolute;
+      left: layout.spacer-value(1) * -1;
+      width: calc(100% + layout.spacer-value(2));
+    }
+  }
+
+  header::before { top: 100% }
+  
+  footer{
+    padding-top: layout.spacer-value(1);
+    &::before { top: 0 }
+  }
+}

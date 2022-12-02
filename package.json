@@ -1,0 +1,16 @@
+{
+  "name": "jemxfw-2.0",
+  "version": "2.0.0",
+  "description": "Second version of my own frontend CSS framework. ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sass": "sass -w scss:css",
+    "minify": "sass -w scss/jemx.scss:css/jemx.min.css --style=compressed"
+  },
+  "author": "Jesse Malotaux <jemx@mboutrecht.nl>",
+  "license": "ISC",
+  "devDependencies": {
+    "sass": "^1.56.1"
+  }
+}

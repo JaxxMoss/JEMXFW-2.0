@@ -1,0 +1,32 @@
+.fw-nowrap { flex-wrap: nowrap; }
+
+.fd-row-r { flex-direction: row-reverse }
+.fd-column { flex-direction: column }
+.fd-column-r { flex-direction: column-reverse }
+
+.jc-initial { justify-content: initial }
+.jc-inherit { justify-content: inherit }
+.jc-flex-start { justify-content: flex-start }
+.jc-flex-end { justify-content: flex-end }
+.jc-center { justify-content: center }
+.jc-space-between { justify-content: space-between }
+.jc-space-around { justify-content: space-around }
+.jc-space-evenly { justify-content: space-evenly }
+
+.ac-initial { align-content: initial }
+.ac-inherit { align-content: inherit }
+.ac-flex-start { align-content: flex-start }
+.ac-flex-end { align-content: flex-end }
+.ac-center { align-content: center }
+.ac-space-between { align-content: space-between }
+.ac-space-around { align-content: space-around }
+.ac-space-evenly { align-content: space-evenly }
+.ac-stretch { align-content: stretch }
+
+.ai-baseline { align-items: baseline }
+.ai-initial { align-items: initial }
+.ai-inherit { align-items: inherit }
+.ai-flex-start { align-items: flex-start }
+.ai-flex-end { align-items: flex-end }
+.ai-center { align-items: center }
+.ai-stretch { align-items: stretch }

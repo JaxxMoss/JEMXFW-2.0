@@ -1,0 +1,46 @@
+@use '../../helper/border';
+
+@use '../../config/layout-config' as layout;
+
+// # address
+address {
+  @extend .border-thin;
+  display: inline-block;
+  width: fit-content;
+  padding: layout.spacer-value(1);
+  margin: layout.spacer-value(2) 0;
+  font-size: 1.1em;
+
+  & + * {
+    margin-left: layout.spacer-value(2);
+  }
+}
+
+// # details
+// # summary
+details {
+  @extend .border-thin;
+  padding: 0!important;
+  margin: layout.spacer-value(2) 0;
+  // summary, p { padding: layout.spacer-value(1) layout.spacer-value(2); }
+
+  summary {
+    padding: 
+      layout.spacer-value(1) 
+      layout.spacer-value(2) 
+      layout.spacer-value(1) 
+      layout.spacer-value(1);
+    cursor: pointer;
+  }
+  
+  p {
+    @extend .border-t-thin;
+    padding: 
+      layout.spacer-value(1) 
+      layout.spacer-value(2);
+    margin: 0;
+  }
+}
+
+// # cite
+cite { font-size: 1.1em; }

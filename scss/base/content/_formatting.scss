@@ -1,0 +1,133 @@
+@use '../../helper/border';
+
+@use '../../config/base-config' as base;
+@use '../../config/layout-config' as layout;
+
+// # headings
+h1, 
+h2, 
+h3, 
+h4, 
+h5, 
+h6 {
+  padding: .1em 0 .3em 0;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  font-family: base.font-family('title');
+  line-height: base.line-height();
+}
+
+h1 { font-size: base.headings('h1'); }
+h2 { font-size: base.headings('h2'); }
+h3 { font-size: base.headings('h3'); }
+h4 { font-size: base.headings('h4'); }
+h5 { font-size: base.headings('h5'); }
+h6 { font-size: base.headings('h6'); }
+
+// # paragraph
+p { 
+  margin: 0 0 layout.spacer-value(1) 0;
+  
+  &:first-child { margin-top: layout.spacer-value(1) }
+}
+
+// # span
+// TODO add message state classes
+
+// # strong
+
+// # em
+
+// # mark
+mark { padding: 0 .3em }
+
+// # ins
+// # u
+// # del
+// # s 
+ins,
+u,
+del,
+s {
+  position: relative;
+  padding: 0 .1em;
+  text-decoration: none;
+
+  &::before {
+    @extend .border-t-thin;
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 100%;
+  }
+}
+
+a,
+ins,
+u {
+  &::before { top: calc(100% - .2em)}
+}
+
+del,
+s {
+  &::before { top: 50%; }
+}
+
+// # small
+
+// # blockquote
+blockquote {
+  position: relative;
+  width: fit-content;
+  padding: layout.spacer-value(1);
+  margin: layout.spacer-value(3) auto;
+  text-align: center;
+  font-family: base.font-family('title');
+  font-size: 2em;
+  line-height: 1em;
+
+  &::before,
+  &::after {
+    @extend .border-x-thick;
+    content: '';
+    position: absolute;
+    left: 0;
+    width: calc(100% - 8px);
+    height: .5em;
+  }
+
+  &::before {
+    @extend .border-t-thick;
+    top: 0;
+  }
+
+  &::after {
+    @extend .border-b-thick;
+    bottom: 0;
+  }
+
+  > * { 
+    display: inline-block; 
+    margin: layout.spacer-value(1) 0;
+  }
+}
+
+// # q
+q {
+  font-weight: bold;
+
+  &::before,
+  &::after {
+    opacity: .7;
+  }
+
+  &::before { margin-right: .2em; }
+  &::after { margin-left: .2em; }
+}
+
+// # sup
+// # sub
+sup,
+sub {
+  padding: .1em;
+}

@@ -1,0 +1,29 @@
+@use '../config/layout-config' as layout;
+
+// Looping through gutter amount specified in config/layout.
+// Default gutter amount is 10.
+@for $i from 0 through layout.spacer-amount() {
+
+  // spacer-size variable is declared. 
+  // layout.spacer-value function is used
+  // $i * .5rem;
+  $spacer-size: layout.spacer-value($i);
+
+  // Padding classes generated.
+  .p-#{$i} { padding: $spacer-size }
+  .px-#{$i} { padding-left: $spacer-size; padding-right: $spacer-size }
+  .py-#{$i} { padding-top: $spacer-size; padding-bottom: $spacer-size }
+  .pt-#{$i} { padding-top: $spacer-size }
+  .pr-#{$i} { padding-right: $spacer-size }
+  .pb-#{$i} { padding-bottom: $spacer-size }
+  .pl-#{$i} { padding-left: $spacer-size }
+
+  // Margin classes generated.
+  .m-#{$i} { margin: $spacer-size }
+  .mx-#{$i} { margin-left: $spacer-size; margin-right: $spacer-size }
+  .my-#{$i} { margin-top: $spacer-size; margin-bottom: $spacer-size }
+  .mt-#{$i} { margin-top: $spacer-size }
+  .mr-#{$i} { margin-right: $spacer-size }
+  .mb-#{$i} { margin-bottom: $spacer-size }
+  .ml-#{$i} { margin-left: $spacer-size }
+}

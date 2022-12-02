@@ -1,0 +1,261 @@
+@use 'sass:math';
+
+@use '../helper/border';
+
+@use '../config/base-config' as base;
+@use '../config/layout-config' as layout;
+@use '../config/module-config' as module;
+
+.navbar {
+  @extend .border-b-thin;
+  position: sticky;
+  top: 0;
+  display: flex;
+  background-color: #fff;
+  z-index: layout.z-index('menu');
+
+  &.align-right,
+  &.align-right .container { justify-content: flex-end }
+
+  &.align-left,
+  &.align-left .container { justify-content: flex-start }
+  
+  &.align-both,
+  &.align-both .container { justify-content: space-between }
+  
+  &.sub-right li > ul,
+  li.sub-right > ul {
+    right: 0;
+    text-align: right;
+    
+    ul { right: 100% }
+  }
+  
+  &.sub-center li > ul,
+  li.sub-center > ul {
+    left: 50%;
+    transform: translateX(-50%);
+
+    ul { left: 100%; transform: translateX(0) }
+  }
+
+  &.sub-left li > ul,
+  li.sub-left > ul {
+    left: 0;
+    text-align: left;
+    
+    ul { left: 100% }
+  }
+
+  .align-left { margin-right: auto }
+  .align-right { margin-left: auto }
+
+  .container { display: flex }
+
+  div.logo {
+    padding: layout.spacer-value(1);
+    font-family: base.font-family('title');
+    font-size: 1.5em;
+  }
+
+  a {
+    width: 100%;
+    padding: layout.spacer-value(1);
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  ul,
+  li {
+    display: flex;
+    margin: 0; 
+    padding: 0;
+  }
+  
+  li {
+    position: relative;
+
+    &:hover > ul {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  li > ul {
+    @extend .border-thin;
+    @extend .border-t-none;
+    display: none;
+    position: absolute;
+    top: 100%;
+    width: fit-content;
+    background-color: #fff;
+    
+    li:not(:last-of-type) {
+      @extend .border-b-thin;
+    }
+
+    ul {
+      display: none;
+      top: 0;
+      font-size: .8rem;
+      a {
+        padding: math.div(layout.spacer-value(1), 2) layout.spacer-value(1);
+      }
+    }
+  }
+
+  .menu-icon {
+    display: none;
+    width: 3rem;
+    height: 100%;
+    padding: .7rem;
+    align-items: center;
+    cursor: pointer;
+    // Hamburger icon generated with 1 element and 2 pseudo-elements
+    .inner,
+    .inner::before,
+    .inner::after {
+      width: 100%;
+      height: base.border('thick');
+      background-color: #000;
+      border-radius: .05rem;
+    }
+
+    .inner {
+      position: relative;
+      transition: background-color .2s ease;
+    }
+
+    .inner::before,
+    .inner::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      transition: rotate .2s ease;
+    }
+
+    .inner::before { top: -.4em }
+    .inner::after { bottom: -.4em }
+
+    // If menu-icon is active, the pseudo-elements will turn.
+    // Inner element will "dissapear".
+    &.is-active {
+      .inner { background-color: transparent }
+
+      .inner::before {
+        rotate: 225deg;
+        top: 0;
+      }
+
+      .inner::after {
+        rotate: -225deg;
+        bottom: 0;
+      }
+    }
+  }
+
+  @media (max-width: layout.screensizes(module.mobile-menu('breakpoint'))) {
+    position: relative;
+    z-index: 1;
+
+    .menu-icon {
+      display: flex;
+    }
+
+    ul:not(li>ul) {
+      position: absolute;
+      flex-direction: column;
+      background-color: #fff;
+      text-align: #{module.mobile-menu('text-align')};
+      font-weight: bold;
+      transition: transform .5s ease;
+      z-index: -1;
+      
+      // If size is full, mobile-menu will be fullscreen.
+      @if module.mobile-menu('size') == 'full' {
+        top: 0;
+        width: 100%;
+        height: 100vh;
+        padding: 4rem;
+
+      } @else if module.mobile-menu('size') == 'auto' {
+        @if module.mobile-menu('animation-side') == 'top' {
+          top: 0;
+
+        } @else {
+          top: 100%;
+
+        }
+      } 
+
+      @if module.mobile-menu('x-position') == 'left' { left: 0 } 
+      @else if module.mobile-menu('x-position') == 'right' { right: 0 }
+      @else { left: 50% }
+
+      // If animation side is 'top'. 
+      @if module.mobile-menu('animation-side') == 'top' {
+        transform: translateY(-100%);
+
+      // If animation side is 'side'
+      // x-position is checked for proper translateX value;
+      } @else if module.mobile-menu('animation-side') == 'side' {
+        
+        @if module.mobile-menu('x-position') == 'left' {
+          transform: translateX(-100%);
+        } @else if module.mobile-menu('x-position') == 'right' {
+          transform: translateX(100%);
+        } @else {
+          transform: translateX(-50%);
+        }
+      }
+
+      &.is-active {
+        
+        @if module.mobile-menu('animation-side') == 'top' {
+          transform: translateY(0%);
+  
+        } @else if module.mobile-menu('animation-side') == 'side' {
+          
+          @if module.mobile-menu('x-position') == 'left' {
+            transform: translateX(0%);
+          } @else if module.mobile-menu('x-position') == 'right' {
+            transform: translateX(0%);
+          }          
+        }
+
+        @if module.mobile-menu('size') == 'auto' {
+          @if module.mobile-menu('animation-side') == 'top' {
+            top: 100%;
+          }
+        }
+      }
+
+      li, 
+      li > ul {
+        flex-direction: column;
+        left: 0 !important;
+        width: 100%;
+        transform: translateX(0) !important;
+      }
+
+      li > ul {
+        display: flex;
+        position: relative;
+        top: 0;
+        margin-bottom: .5em;
+        border: none;
+        flex-direction: column;
+        
+        li:not(:last-of-type) { border-bottom: none }
+
+        a { 
+          padding: .2em 1em;
+          font-weight: normal;
+          font-size: .9em;
+          text-align: #{module.mobile-menu('text-align')}; 
+
+        }
+      }
+    }
+  }
+}

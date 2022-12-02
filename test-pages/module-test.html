@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JEMX V2.0 | module-test</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600&family=Source+Sans+3:ital,wght@0,300;0,700;1,300;1,700&display=swap" rel="stylesheet">
+  
+  <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+
+  <link rel="stylesheet" href="../css/jemx.min.css" />
+
+</head>
+<body>
+  <header>
+    
+    <nav class="navbar align-both sub-center">
+      
+      <div class="container">
+        <div class="logo">Logo</div>
+      
+        <ul role="nav">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Shop</a>
+            <ul>
+              <li><a href="#">Category 1</a>
+                <ul>
+                  <li><a href="">Sub category 1</a></li>
+                  <li><a href="">Sub category 2</a></li>
+                  <li><a href="">Sub category 3</a></li>
+                </ul>
+              </li>
+              <li><a href="#">Category sixhundred</a></li>
+              <li><a href="#">And another one</a></li>
+            </ul>
+          </li>
+          <li><a href="#">Clients</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+
+        <div class="menu-icon">
+          <div class="inner"></div>
+        </div>
+      </div>
+      
+    </nav>
+  
+  </header>
+
+  <main class="container pt-6">
+    <div class="row">
+      <div class="col-s-6 col-xl-3">
+        <div class="card">
+          <h2>Big title</h2>
+          <p>And some text, to illustrate how this would look in a simple card.</p>
+          <a href="#">And a link.</a>
+        </div>
+      </div>
+      <div class="col-s-6 col-xl-3">
+        <div class="card">
+          <img src="https://placekitten.com/480/480" alt="Kitten" />
+          <header>
+            <h3>Smaller title</h3>
+          </header>
+          <p>And some text for the kitty. Look at the kitty. It's a cute kitty.</p>
+        </div>
+      </div>
+      <div class="col-s-6 col-xl-3">
+        <div class="card">
+          <img class="rounded" src="https://placekitten.com/480/480" alt="Kitten" />
+          <h4>Smallest title</h4>
+          <p>Now I know it's the same kitty, but that's just the website. Not my fault, shoo.</p>
+        </div>
+      </div>
+      <div class="col-s-6 col-xl-3">
+        <div class="card text-center">
+          <h3>Button card</h3>
+          <p>You can click on that button. Yes, with your mouse. I know it's crazy. </p>
+          <p>Nothing will happen, but you can still click it.</p>
+          <button class="is-primary">Click me!</button>
+          <footer>And a footer.</footer>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12">
+        <div class="alert is-primary">
+          <i class="bx bxl-youtube"></i>
+          <div class="content">
+            <h3>Alert title</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis ut earum molestiae repellat debitis illum et doloremque doloribus quasi commodi voluptatum optio similique labore, cum quisquam voluptatem in neque ipsa.</p>
+          </div>
+        </div>
+        <div class="alert is-secondary">
+          <i class="bx bxl-youtube"></i>
+          <div class="content">
+            <h3>Alert title</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis ut earum molestiae repellat debitis illum et doloremque doloribus quasi commodi voluptatum optio similique labore, cum quisquam voluptatem in neque ipsa.</p>
+          </div>
+        </div>
+        <div class="alert is-alert">
+          <i class="bx bxl-youtube"></i>
+          <div class="content">
+            <h3>Alert title</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis ut earum molestiae repellat debitis illum et doloremque doloribus quasi commodi voluptatum optio similique labore, cum quisquam voluptatem in neque ipsa.</p>
+          </div>
+        </div>
+        <div class="alert is-light">
+          <div class="content">
+            <h3>Alert title</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis ut earum molestiae repellat debitis illum et doloremque doloribus quasi commodi voluptatum optio similique labore, cum quisquam voluptatem in neque ipsa.</p>
+          </div>
+        </div>
+        <div class="alert is-dark">
+          <i class="bx bxl-youtube"></i>
+          <div class="content">
+            <h3>Alert title</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis ut earum molestiae repellat debitis illum et doloremque doloribus quasi commodi voluptatum optio similique labore, cum quisquam voluptatem in neque ipsa.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <script>
+    const navUl     = document.querySelector('.navbar ul');
+    const menuIcon  = document.querySelector('.navbar .menu-icon');
+    
+    menuIcon.addEventListener('click', () => {
+      navUl.classList.toggle('is-active');
+      menuIcon.classList.toggle('is-active');
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,6 @@
+@use 'sass:map';
+
+@function get( $conf-map, $category, $key: false ) {
+  @if $key { @return map-get($conf-map, $category, $key); }
+  @else { @return map-get($conf-map, $category); }
+}

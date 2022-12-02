@@ -1,0 +1,10 @@
+@use '../utitilies/mixins/color';
+
+@use '../config/theme-config' as theme;
+@use '../config/state-config' as state;
+
+@include color.generate-classes( 
+  state.message(), 
+  theme.font-color(), 
+  theme.font-color( false ) 
+);

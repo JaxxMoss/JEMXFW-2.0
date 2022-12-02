@@ -1,0 +1,11 @@
+@use '../config/theme-config' as theme;
+
+code, 
+samp,
+pre { color: theme.font-color(false) }
+
+code { background-color: theme.background-color(false) }
+
+samp { background-color: theme.accent('secondary') }
+
+pre { background-color: theme.accent('dark'); }

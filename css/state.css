@@ -1,0 +1,26 @@
+.is-info {
+  background-color: #3098F2;
+  color: #222;
+}
+
+.is-success {
+  background-color: #8CE205;
+  color: #222;
+}
+
+.is-warning {
+  background-color: #F2E205;
+  color: #222;
+}
+
+.is-danger {
+  background-color: #F2B705;
+  color: #222;
+}
+
+.is-error {
+  background-color: #F22D05;
+  color: #222;
+}
+
+/*# sourceMappingURL=state.css.map */

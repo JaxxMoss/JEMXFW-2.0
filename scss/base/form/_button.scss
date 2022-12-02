@@ -1,0 +1,11 @@
+@use '../../config/layout-config' as layout;
+
+button, 
+input[type="submit"],
+input[type="reset"],
+input[type="button"] {
+  width: fit-content;
+  &:disabled {
+    opacity: .8;
+  } 
+}

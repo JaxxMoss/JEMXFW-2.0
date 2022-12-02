@@ -1,0 +1,16 @@
+@use '../../helper/border';
+
+@use '../../config/layout-config' as layout;
+
+fieldset {
+  @extend .border-thin;
+  width: 100%;
+  flex-direction: column;
+  padding: layout.spacer-value(1);
+
+  legend {
+    padding: layout.spacer-value(1);
+    font-size: 1.2em;
+    font-weight: bold;
+  }
+}

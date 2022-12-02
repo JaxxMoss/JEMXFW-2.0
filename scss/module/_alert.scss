@@ -1,0 +1,42 @@
+@use '../helper/border';
+
+@use '../config/layout-config' as layout;
+@use '../config/state-config' as state;
+
+.alert {
+  @extend .border-thin;
+  @extend .border-l-thick;
+  display: flex;
+  padding: layout.spacer-value(1);
+  margin: layout.spacer-value(1) 0;
+  flex-direction: column;
+  align-items: center;
+
+  @media (min-width: layout.screensizes('s')) {
+    flex-direction: row;
+  }
+  
+  i {
+    padding: layout.spacer-value(2);
+    font-size: 2em;
+  }
+  
+  .content > *:first-child { padding-top: 0 }
+
+  @each $name, $color in state.message() {
+    &.is-#{$name} {
+      background-color: transparentize($color, .8);
+      border-color: $color;
+      
+      h1, 
+      h2, 
+      h3, 
+      h4, 
+      h5, 
+      h6,
+      i {
+        color: darken($color, 10%);
+      }
+    }
+  }
+}

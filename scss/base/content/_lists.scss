@@ -1,0 +1,63 @@
+@use '../../helper/border';
+
+@use '../../config/layout-config' as layout;
+
+// # ul, ol > li
+ul, ol {
+  padding-left: layout.spacer-value(3);
+  margin: layout.spacer-value(2) 0;
+  list-style-position: outside;
+  
+  li {
+    padding-left: layout.spacer-value(1);
+    margin: layout.spacer-value(1) 0;
+    
+    &::marker {
+      margin-left: layout.spacer-value(2);
+      font-weight: bold;
+    }
+  }
+  
+  &[role="nav"] {
+    padding: 0;
+    margin: 0;
+    
+    li {
+      margin: 0;
+    }
+  }
+}
+
+[role="list"],
+[role="nav"] { 
+  list-style: none;
+
+  ul, ol {
+    list-style: none;
+  }
+}
+
+// # dl
+// # dt 
+// # dd
+dl { 
+  @extend .border-thin;
+  display: grid;
+  padding: 0;
+  margin: layout.spacer-value(1) 0;
+  grid-template-columns: 1fr;
+  
+  @media (min-width: layout.screensizes('s')) {
+    grid-template-columns: repeat(3, 1fr);
+    
+    dt { text-align: right; }
+  }
+  
+  dt, 
+  dd {
+    padding: layout.spacer-value(1);
+    margin: 0;
+  }
+
+  dd { grid-column: span 2; }
+}

@@ -1,0 +1,28 @@
+
+@mixin generate_classes( $color-map, $dark-text, $light-text ) {
+
+  @each $name, $color in $color-map {
+    
+    .#{$name}-color { @include text( $color ) }
+    
+    .#{$name}-background { @include background( $color ) }
+    
+    .#{$name}-border { @include border( $color ) }
+    
+    .is-#{$name} { @include is-color( $color, $dark-text, $light-text ) }
+
+  }
+  
+}
+
+@mixin text( $color ) { color: $color }
+@mixin background( $color ) { background-color: $color }
+@mixin border( $color ) { border-color: $color }
+
+@mixin is-color( $color, $dark-text, $light-text ) {
+  background-color: $color;
+  border-color: darken($color, 20%);
+    
+  @if ( lightness( $color ) > 80) { color: $dark-text } 
+  @else { color: $light-text }
+}

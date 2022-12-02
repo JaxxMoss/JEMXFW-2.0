@@ -1,0 +1,12 @@
+@use '../../config/layout-config' as layout;
+
+form {
+  display: flex;
+  flex-wrap: wrap;
+  margin: layout.spacer-value(1) 0;
+  
+  > *:not([type=radio]):not([type=checkbox]) { 
+    display: flex; 
+    flex-direction: column; 
+  }
+}

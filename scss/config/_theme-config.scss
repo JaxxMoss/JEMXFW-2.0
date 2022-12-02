@@ -1,0 +1,39 @@
+@use 'sass:map';
+
+@use '../utitilies/functions/config';
+
+$colors: (
+  'font-color': (
+    'base': #222,
+    'alternate': #ECF0F1
+  ),
+  'background-color': (
+    'base': #ECF0F1,
+    'alternate': #222
+  ),
+  'border-color': (
+    'base': #222,
+    'alternate': #ECF0F1
+  ),
+  'accent': (
+    'primary': #3498DB,
+    'secondary': #2980B9,
+    'alert': #E74C3C,
+    'light': #ECF0F1,
+    'dark': #2C3E50
+  )
+);
+
+@function font-color( $alternate: true ) { 
+  @if $alternate { @return config.get($colors, 'font-color', 'base'); }
+  @else { @return config.get($colors, 'font-color', 'alternate'); }
+}
+@function background-color( $alternate: true ) { 
+  @if $alternate { @return config.get($colors, 'background-color', 'base'); }
+  @else { @return config.get($colors, 'background-color', 'alternate'); }
+}
+@function border-color( $alternate: true ) { 
+  @if $alternate { @return config.get($colors, 'border-color', 'base'); }
+  @else { @return config.get($colors, 'border-color', 'alternate'); }
+}
+@function accent( $name: false ) { @return config.get($colors, 'accent', $name); }

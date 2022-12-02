@@ -1,0 +1,53 @@
+@use '../../helper/border';
+
+@use '../../config/layout-config' as layout;
+
+// # abbr
+abbr {
+  font-style: italic;
+  text-decoration: none;
+  cursor: help;
+
+  &::after {
+    content:'';
+    position: absolute;
+    width: .2em;
+    height: .2em;
+    border-radius: .1em;
+    background-color: black;
+  }
+}
+
+// # dfn
+
+// # code
+// # kdb
+// # samp
+code, 
+kbd, 
+samp {
+  line-height: 2em;
+  padding: layout.spacer-value(1);
+  margin: 0 layout.spacer-value(1);
+}
+
+// # kdb
+kbd {
+  position: relative;
+  
+  &:before {
+    @extend .border-thin;
+    //@include shadow.box($ver: .2rem, $hor: .1rem);
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    box-shadow: .05rem 0.2rem 0rem 0.05rem #000;
+    z-index: layout.z-index('background');
+  }
+}
+
+// # pre
+pre { padding: layout.spacer-value(1) }

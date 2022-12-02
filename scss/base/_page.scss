@@ -1,0 +1,57 @@
+@use '../config/base-config' as base;
+@use '../config/layout-config' as layout;
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+  
+  @media (prefers-reduced-motion: reduce) {
+    scroll-behavior: auto;
+    
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+// html and body element base width and height.
+html,
+body {
+  width: 100%;
+  min-height: 100%;
+  margin: 0;
+}
+
+body { overflow-x: hidden }
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+// Font-size of HTML element defined. 
+// Used for REM based sizes. 
+// Specific sizes can be specified in config/_base
+// Screensizes can be specified in config/_layout
+html {
+  // Smallest font-size is set.
+  font-size: base.font_sizes('s');
+
+  // Looping through screensizes specified in config/_layout
+  @each $prefix, $screensize in layout.screensizes() {
+    
+    // If font-size for specific screensize is specified.
+    @if base.font_sizes($prefix) {
+      
+      // Media query with font-size is added.
+      @media (min-width: $screensize) { font-size: base.font_sizes($prefix) }
+      
+    }
+  }
+}

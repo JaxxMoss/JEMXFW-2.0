@@ -1,0 +1,45 @@
+@use '../../helper/border';
+
+@use '../../config/layout-config' as layout;
+
+img,
+picture {
+  display: block;
+  max-width: 100%;
+  width: fit-content;
+  margin: layout.spacer-value(1) 0;
+  object-fit: cover;
+}
+
+figure {
+  @extend .border-thin;
+  width: fit-content;
+  max-width: 100%;
+  margin: layout.spacer-value(1) 0;
+  border-radius: .3rem;
+  overflow: hidden;
+
+  img, 
+  picture { margin: 0 }
+  
+  figcaption {
+    padding: layout.spacer-value(1);
+    font-style: italic;
+  }
+}
+
+audio,
+video {
+  margin: layout.spacer-value(2) 0; 
+}
+
+audio::-webkit-media-controls-panel {
+  background-color: #ddd;
+}
+
+iframe,
+embed,
+object {
+  width: 100%;
+  margin: layout.spacer-value(1) 0;
+}

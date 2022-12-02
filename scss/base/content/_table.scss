@@ -1,0 +1,28 @@
+@use '../../helper/border';
+
+@use '../../config/layout-config' as layout;
+
+// # table
+table {
+  width: 100%;
+  margin: layout.spacer-value(2) 0;
+  border-collapse: collapse;
+  overflow: hidden;
+
+  caption {
+    padding: layout.spacer-value(1);
+    font-size: 1.1em;
+    font-weight: bold;
+  }
+
+  tfoot th {
+    font-size: .8em;
+    font-weight: normal;
+  }
+  
+  tr {
+    td,th {
+      padding: layout.spacer-value(1);
+    }
+  }
+}
