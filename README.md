@@ -34,3 +34,4 @@ In the case of modules the classnames will consist of module name and part name.
 - .blend-difference -> mix-blend-mode: difference.
 - .banner -> *banner element. Can be used as a full-page banner element.*
 
+*Not all classnames follow the right naming conventions at the moment. Will be updated in the future.*
