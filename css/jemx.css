@@ -1920,11 +1920,17 @@ article footer::before {
   display: flex;
   padding: 0.5rem;
   margin: 0.5rem 0;
+  flex-direction: column;
   align-items: center;
 }
+@media (min-width: 576px) {
+  .alert {
+    flex-direction: row;
+  }
+}
 .alert i {
-  padding: 1.5rem;
-  font-size: 1.4rem;
+  padding: 1rem;
+  font-size: 2em;
 }
 .alert .content > *:first-child {
   padding-top: 0;
@@ -2051,15 +2057,28 @@ article footer::before {
   right: 0;
   text-align: right;
 }
+.navbar.sub-right li > ul ul,
+.navbar li.sub-right > ul ul {
+  right: 100%;
+}
 .navbar.sub-center li > ul,
 .navbar li.sub-center > ul {
   left: 50%;
   transform: translateX(-50%);
 }
+.navbar.sub-center li > ul ul,
+.navbar li.sub-center > ul ul {
+  left: 100%;
+  transform: translateX(0);
+}
 .navbar.sub-left li > ul,
 .navbar li.sub-left > ul {
   left: 0;
   text-align: left;
+}
+.navbar.sub-left li > ul ul,
+.navbar li.sub-left > ul ul {
+  left: 100%;
 }
 .navbar .align-left {
   margin-right: auto;
@@ -2090,7 +2109,7 @@ article footer::before {
 .navbar li {
   position: relative;
 }
-.navbar li:hover ul {
+.navbar li:hover > ul {
   display: flex;
   flex-direction: column;
 }
@@ -2101,13 +2120,13 @@ article footer::before {
   width: fit-content;
   background-color: #fff;
 }
-.navbar li > ul > li > ul {
+.navbar li > ul ul {
+  display: none;
   top: 0;
-  left: 100%;
+  font-size: 0.8rem;
 }
-.navbar li > ul > li > ul > li > a {
-  padding: 0.2em;
-  font-size: 0.8em;
+.navbar li > ul ul a {
+  padding: 0.25rem 0.5rem;
 }
 .navbar .menu-icon {
   display: none;
@@ -2153,7 +2172,7 @@ article footer::before {
   rotate: -225deg;
   bottom: 0;
 }
-@media (max-width: 576px) {
+@media (max-width: 768px) {
   .navbar {
     position: relative;
     z-index: 1;
@@ -2165,10 +2184,11 @@ article footer::before {
     position: absolute;
     flex-direction: column;
     background-color: #fff;
-    text-align: right;
+    text-align: center;
     font-weight: bold;
     transition: transform 0.5s ease;
     z-index: -1;
+    top: 100%;
     right: 0;
     transform: translateX(100%);
   }
@@ -2178,6 +2198,9 @@ article footer::before {
   .navbar ul:not(li > ul) li,
   .navbar ul:not(li > ul) li > ul {
     flex-direction: column;
+    left: 0 !important;
+    width: 100%;
+    transform: translateX(0) !important;
   }
   .navbar ul:not(li > ul) li > ul {
     display: flex;
@@ -2194,33 +2217,215 @@ article footer::before {
     padding: 0.2em 1em;
     font-weight: normal;
     font-size: 0.9em;
-    text-align: right;
+    text-align: center;
   }
+}
+
+.banner {
+  display: flex;
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  padding: 3rem 2vw;
+  justify-content: center;
+  align-items: center;
+}
+.banner.height-25 {
+  height: 25vh;
+}
+.banner.height-50 {
+  height: 50vh;
+}
+.banner.height-75 {
+  height: 75vh;
+}
+.banner.height-fit {
+  height: fit-content;
+}
+.banner img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+.banner-content {
+  position: relative;
+  width: min(30rem, 100%);
+}
+.banner-content-top {
+  align-items: flex-start;
+}
+.banner-content-bottom {
+  align-items: flex-end;
+}
+.banner-content-left {
+  justify-content: flex-start;
+}
+.banner-content-right {
+  justify-content: flex-end;
+}
+
+.info-color {
+  color: #3098F2;
+}
+
+.info-background {
+  background-color: #3098F2;
+}
+
+.info-border {
+  border-color: #3098F2;
 }
 
 .is-info {
   background-color: #3098F2;
-  color: #222;
+  border-color: #0b64b1;
+  color: #ECF0F1;
+}
+
+.success-color {
+  color: #8CE205;
+}
+
+.success-background {
+  background-color: #8CE205;
+}
+
+.success-border {
+  border-color: #8CE205;
 }
 
 .is-success {
   background-color: #8CE205;
-  color: #222;
+  border-color: #4e7e03;
+  color: #ECF0F1;
+}
+
+.warning-color {
+  color: #F2E205;
+}
+
+.warning-background {
+  background-color: #F2E205;
+}
+
+.warning-border {
+  border-color: #F2E205;
 }
 
 .is-warning {
   background-color: #F2E205;
-  color: #222;
+  border-color: #8e8503;
+  color: #ECF0F1;
+}
+
+.danger-color {
+  color: #F2B705;
+}
+
+.danger-background {
+  background-color: #F2B705;
+}
+
+.danger-border {
+  border-color: #F2B705;
 }
 
 .is-danger {
   background-color: #F2B705;
-  color: #222;
+  border-color: #8e6b03;
+  color: #ECF0F1;
+}
+
+.error-color {
+  color: #F22D05;
+}
+
+.error-background {
+  background-color: #F22D05;
+}
+
+.error-border {
+  border-color: #F22D05;
 }
 
 .is-error {
   background-color: #F22D05;
-  color: #222;
+  border-color: #8e1a03;
+  color: #ECF0F1;
+}
+
+.blend-normal {
+  mix-blend-mode: normal;
+}
+
+.blend-multiply {
+  mix-blend-mode: multiply;
+}
+
+.blend-screen {
+  mix-blend-mode: screen;
+}
+
+.blend-overlay {
+  mix-blend-mode: overlay;
+}
+
+.blend-darken {
+  mix-blend-mode: darken;
+}
+
+.blend-lighten {
+  mix-blend-mode: lighten;
+}
+
+.blend-color-dodge {
+  mix-blend-mode: color-dodge;
+}
+
+.blend-color-burn {
+  mix-blend-mode: color-burn;
+}
+
+.blend-hard-light {
+  mix-blend-mode: hard-light;
+}
+
+.blend-soft-light {
+  mix-blend-mode: soft-light;
+}
+
+.blend-difference {
+  mix-blend-mode: difference;
+}
+
+.blend-exclusion {
+  mix-blend-mode: exclusion;
+}
+
+.blend-hue {
+  mix-blend-mode: hue;
+}
+
+.blend-saturation {
+  mix-blend-mode: saturation;
+}
+
+.blend-color {
+  mix-blend-mode: color;
+}
+
+.blend-luminosity {
+  mix-blend-mode: luminosity;
+}
+
+.blend-initial {
+  mix-blend-mode: initial;
+}
+
+.blend-unset {
+  mix-blend-mode: unset;
 }
 
 .text-left {
@@ -2262,7 +2467,8 @@ body {
 
 .is-primary {
   background-color: #3498DB;
-  color: #222;
+  border-color: #196090;
+  color: #ECF0F1;
 }
 
 .secondary-color {
@@ -2279,7 +2485,8 @@ body {
 
 .is-secondary {
   background-color: #2980B9;
-  color: #222;
+  border-color: #164666;
+  color: #ECF0F1;
 }
 
 .alert-color {
@@ -2296,7 +2503,8 @@ body {
 
 .is-alert {
   background-color: #E74C3C;
-  color: #222;
+  border-color: #a82315;
+  color: #ECF0F1;
 }
 
 .light-color {
@@ -2313,6 +2521,7 @@ body {
 
 .is-light {
   background-color: #ECF0F1;
+  border-color: #b1c2c6;
   color: #222;
 }
 
@@ -2330,7 +2539,8 @@ body {
 
 .is-dark {
   background-color: #2C3E50;
-  color: #222;
+  border-color: #080b0e;
+  color: #ECF0F1;
 }
 
 code,

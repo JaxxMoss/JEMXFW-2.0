@@ -1,26 +1,91 @@
+.info-color {
+  color: #3098F2;
+}
+
+.info-background {
+  background-color: #3098F2;
+}
+
+.info-border {
+  border-color: #3098F2;
+}
+
 .is-info {
   background-color: #3098F2;
-  color: #222;
+  border-color: #0b64b1;
+  color: #ECF0F1;
+}
+
+.success-color {
+  color: #8CE205;
+}
+
+.success-background {
+  background-color: #8CE205;
+}
+
+.success-border {
+  border-color: #8CE205;
 }
 
 .is-success {
   background-color: #8CE205;
-  color: #222;
+  border-color: #4e7e03;
+  color: #ECF0F1;
+}
+
+.warning-color {
+  color: #F2E205;
+}
+
+.warning-background {
+  background-color: #F2E205;
+}
+
+.warning-border {
+  border-color: #F2E205;
 }
 
 .is-warning {
   background-color: #F2E205;
-  color: #222;
+  border-color: #8e8503;
+  color: #ECF0F1;
+}
+
+.danger-color {
+  color: #F2B705;
+}
+
+.danger-background {
+  background-color: #F2B705;
+}
+
+.danger-border {
+  border-color: #F2B705;
 }
 
 .is-danger {
   background-color: #F2B705;
-  color: #222;
+  border-color: #8e6b03;
+  color: #ECF0F1;
+}
+
+.error-color {
+  color: #F22D05;
+}
+
+.error-background {
+  background-color: #F22D05;
+}
+
+.error-border {
+  border-color: #F22D05;
 }
 
 .is-error {
   background-color: #F22D05;
-  color: #222;
+  border-color: #8e1a03;
+  color: #ECF0F1;
 }
 
 /*# sourceMappingURL=state.css.map */

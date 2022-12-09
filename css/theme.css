@@ -17,7 +17,8 @@ body {
 
 .is-primary {
   background-color: #3498DB;
-  color: #222;
+  border-color: #196090;
+  color: #ECF0F1;
 }
 
 .secondary-color {
@@ -34,7 +35,8 @@ body {
 
 .is-secondary {
   background-color: #2980B9;
-  color: #222;
+  border-color: #164666;
+  color: #ECF0F1;
 }
 
 .alert-color {
@@ -51,7 +53,8 @@ body {
 
 .is-alert {
   background-color: #E74C3C;
-  color: #222;
+  border-color: #a82315;
+  color: #ECF0F1;
 }
 
 .light-color {
@@ -68,6 +71,7 @@ body {
 
 .is-light {
   background-color: #ECF0F1;
+  border-color: #b1c2c6;
   color: #222;
 }
 
@@ -85,7 +89,8 @@ body {
 
 .is-dark {
   background-color: #2C3E50;
-  color: #222;
+  border-color: #080b0e;
+  color: #ECF0F1;
 }
 
 code,
